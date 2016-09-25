@@ -121,9 +121,13 @@ void hpISR(void)
                     }
                   //  char *pStr = createString(SPEED_MAX);
                     SPEED_MAX += increment;
+                    ID_Serial;
+                    Speed_Out(SPEED_MAX);
+                    NL_CR;
                     LCD_Clear();
                     LCD_Home();
                     LCD_SPEED_OUT(SPEED_MAX);
+                    IRE_Serial();
                     break;
                     // 66 denotes B was depressed
                 case 66:
@@ -131,7 +135,7 @@ void hpISR(void)
                     {
                         ID_Serial();
                         warning();
-                        NL_CR();
+                        NL_CR(); 
                         LCD_Clear();
                         LCD_Home();
                         LCD_MIN();
@@ -139,9 +143,13 @@ void hpISR(void)
                         break;
                     }
                     SPEED_MAX -= increment;
+                    ID_Serial();
+                    Speed_Out(SPEED_MAX);
+                    NL_CR();
                     LCD_Clear();
                     LCD_Home();
                     LCD_SPEED_OUT(SPEED_MAX);
+                    IRE_Serial();
                     break;
                 default:
                     ID_Serial();
