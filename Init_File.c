@@ -121,9 +121,9 @@ void hpISR(void)
                     }
                   //  char *pStr = createString(SPEED_MAX);
                     SPEED_MAX += increment;
-                    ID_Serial;
+                    ID_Serial();
                     Speed_Out(SPEED_MAX);
-                    NL_CR;
+                    NL_CR();
                     LCD_Clear();
                     LCD_Home();
                     LCD_SPEED_OUT(SPEED_MAX);
