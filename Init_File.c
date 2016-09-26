@@ -31,13 +31,13 @@ void Init_gVars(void);
  */
 void main(void)
 {
-    LCD_Init();
+   // LCD_Init();
     Init_gVars();
     // Set registers associated with RS232 accordingly 
     Serial_Init();
     
     // Welcome message to appear across LCD screen
-    LCD_MSG_START();
+   // LCD_MSG_START();
     
     // Welcome message to appear on screen
     Start_MSG();
@@ -51,9 +51,9 @@ void main(void)
     
     // "USER_MANUAL" to appear across LCD screen
     // First clear and home the LCD
-    LCD_Clear();
-    LCD_Home();
-    LCD_UM();
+    //LCD_Clear();
+    //LCD_Home();
+    //LCD_UM();
     
     // Enable serial receive interrupts. Transmit interrupt disabled for the 
     // time being
@@ -74,7 +74,7 @@ void interrupt_at_highVec(void)
     _asm GOTO hpISR _endasm
 }
 
-#pragma code
+#pragma code 
 
 #pragma interrupt hpISR
 void hpISR(void)
@@ -96,9 +96,9 @@ void hpISR(void)
                     ID_Serial;
                     AUTO_MSG();
                     NL_CR();
-                    LCD_Clear();
-                    LCD_Home();
-                    LCD_UA();
+             //       LCD_Clear();
+              //      LCD_Home();
+                //    LCD_UA();
                     IRE_Serial;
                     transition++;
                     break;
@@ -114,8 +114,8 @@ void hpISR(void)
                         warning();
                         NL_CR();
                         LCD_Clear();
-                        LCD_Home();
-                        LCD_MAX();
+                  //      LCD_Home();
+                   //     LCD_MAX();
                         IRE_Serial();
                         break;
                     }
@@ -124,9 +124,9 @@ void hpISR(void)
                     ID_Serial();
                     Speed_Out(SPEED_MAX);
                     NL_CR();
-                    LCD_Clear();
-                    LCD_Home();
-                    LCD_SPEED_OUT(SPEED_MAX);
+                  //  LCD_Clear();
+                  //  LCD_Home();
+                  //  LCD_SPEED_OUT(SPEED_MAX);
                     IRE_Serial();
                     break;
                     // 66 denotes B was depressed
@@ -136,9 +136,9 @@ void hpISR(void)
                         ID_Serial();
                         warning();
                         NL_CR(); 
-                        LCD_Clear();
-                        LCD_Home();
-                        LCD_MIN();
+                  //      LCD_Clear();
+                    //    LCD_Home();
+                      //  LCD_MIN();
                         IRE_Serial();
                         break;
                     }
@@ -146,9 +146,9 @@ void hpISR(void)
                     ID_Serial();
                     Speed_Out(SPEED_MAX);
                     NL_CR();
-                    LCD_Clear();
-                    LCD_Home();
-                    LCD_SPEED_OUT(SPEED_MAX);
+                  //  LCD_Clear();
+                  //  LCD_Home();
+                  //  LCD_SPEED_OUT(SPEED_MAX);
                     IRE_Serial();
                     break;
                 default:
@@ -169,20 +169,20 @@ void hpISR(void)
                     ID_Serial();
                     Parrot_MSG();
                     NL_CR();
-                    LCD_Clear();
-                    LCD_Home();
-                    LCD_PM();
+                  //  LCD_Clear();
+                  //  LCD_Home();
+                  //  LCD_PM();
                     IRE_Serial();
                     break;
-                case 8:
+                case 77:
                     USER_MANUAL = 1;
                     USER_AUTO = 0;
                     ID_Serial();
                     Start_Help();
                     NL_CR();
-                    LCD_Clear();
-                    LCD_Home();
-                    LCD_UM();
+                  //  LCD_Clear();
+                  //  LCD_Home();
+                  //  LCD_UM();
                     IRE_Serial();
                     break;
                 default:
