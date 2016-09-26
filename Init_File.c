@@ -62,7 +62,7 @@ void main(void)
     // Wait for user prompts and act accordingly
     while(1)
     {
-        ;
+        ;  
     }
 }
 
